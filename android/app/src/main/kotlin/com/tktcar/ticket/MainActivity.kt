@@ -1,4 +1,4 @@
-package com.tktcar.ticket.tkt_ticket
+package com.tktcar.ticket
 
 import io.flutter.embedding.android.FlutterActivity
 
