@@ -4,7 +4,7 @@ import 'package:tkt_ticket/resources/dimens.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PassengerPage extends StatelessWidget {
-  TicketVO ticket;
+  final TicketVO ticket;
 
   PassengerPage({required this.ticket});
 
@@ -21,43 +21,43 @@ class PassengerPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               FieldSection(
-                lable: "နာမည်",
+                label: "နာမည်",
                 value: ticket.name,
               ),
               Divider(),
               FieldSection(
-                lable: "ဖုန်းနံပါတ်",
+                label: "ဖုန်းနံပါတ်",
                 value: ticket.phone,
                 isTrailing: true,
               ),
               Divider(),
               FieldSection(
-                lable: "ခရီးစဥ်",
+                label: "ခရီးစဥ်",
                 value: ticket.way,
               ),
               Divider(),
               FieldSection(
-                lable: "ခုံ",
+                label: "ခုံ",
                 value: ticket.set,
               ),
               Divider(),
               FieldSection(
-                lable: "ခုံအရေအတွက်",
+                label: "ခုံအရေအတွက်",
                 value: ticket.setNumber,
               ),
               Divider(),
               FieldSection(
-                lable: "လိုက်မည့်ရက်",
+                label: "လိုက်မည့်ရက်",
                 value: ticket.date,
               ),
               Divider(),
               FieldSection(
-                lable: "မှတ်ချက်",
+                label: "မှတ်ချက်",
                 value: ticket.note,
               ),
               Divider(),
               FieldSection(
-                lable: "လက်မှတ်ဖြတ်ပေးသူ",
+                label: "လက်မှတ်ဖြတ်ပေးသူ",
                 value: ticket.agent,
               ),
               Spacer(),
@@ -82,17 +82,20 @@ class PassengerPage extends StatelessWidget {
 }
 
 class FieldSection extends StatelessWidget {
-  String lable;
+  String label;
   String value;
   bool isTrailing;
-  FieldSection(
-      {required this.lable, required this.value, this.isTrailing = false});
+  FieldSection({
+    required this.label,
+    required this.value,
+    this.isTrailing = false,
+  });
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Container(
-          width: MediaQuery.of(context).size.width / 4, child: Text(lable)),
+      leading: SizedBox(
+          width: MediaQuery.of(context).size.width / 4, child: Text(label)),
       title: Text(value),
       trailing: isTrailing
           ? IconButton(

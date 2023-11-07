@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:tkt_ticket/views/login_page.dart';
+import 'package:tkt_ticket/views/ways_page.dart';
 
 class HomeController extends GetxController
     with GetSingleTickerProviderStateMixin {
@@ -72,6 +73,7 @@ class HomeController extends GetxController
     if (pickedDate != null) {
       String formattedDate = DateFormat('dd-MM-yyyy').format(pickedDate);
       print(formattedDate);
+      Get.to(() => WaysPage(date: formattedDate));
     } else {
       print("Date is not selected");
     }

@@ -14,9 +14,6 @@ class DayTabBarView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     dayTabBarController.fetchDataFromFirebase(date);
-    var size = MediaQuery.of(context).size;
-    double itemHeight = GRID_VIEW_ITEM_HEIGHT;
-    final double itemWidth = size.width / 2;
     return Padding(
       padding: EdgeInsets.all(MARGIN_CARD_MEDIUM_2),
       child: Obx(() {
