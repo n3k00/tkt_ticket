@@ -4,7 +4,7 @@ import 'package:tkt_ticket/controllers/home_controller.dart';
 import 'package:tkt_ticket/resources/dimens.dart';
 import 'package:tkt_ticket/resources/strings.dart';
 import 'package:tkt_ticket/views/create_way_page.dart';
-import 'package:tkt_ticket/widgets/tab_bar_view.dart';
+import 'package:tkt_ticket/widgets/day_tab_bar_view.dart';
 import 'package:tkt_ticket/widgets/way_section_view.dart';
 
 class HomePage extends StatelessWidget {
@@ -26,7 +26,9 @@ class HomePage extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              homeController.selectDate();
+            },
             icon: Icon(
               Icons.calendar_month_outlined,
             ),
@@ -56,9 +58,7 @@ class HomePage extends StatelessWidget {
         physics: BouncingScrollPhysics(),
         controller: homeController.tabController,
         children: homeController.dates.map((date) {
-          return Center(
-            child: DayTabBarView(),
-          );
+          return DayTabBarView(date: homeController.format.format(date));
         }).toList(),
       ),
       floatingActionButton: FloatingActionButton(
