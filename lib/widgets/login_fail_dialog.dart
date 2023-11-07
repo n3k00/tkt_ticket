@@ -3,8 +3,9 @@ import 'package:get/get.dart';
 import 'package:tkt_ticket/resources/dimens.dart';
 
 class LoginFailDialog extends StatelessWidget {
+  String title;
   String text;
-  LoginFailDialog({required this.text});
+  LoginFailDialog({required this.title, required this.text});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -27,7 +28,7 @@ class LoginFailDialog extends StatelessWidget {
                   children: [
                     SizedBox(height: 10),
                     Text(
-                      "Please login again!",
+                      title,
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: TEXT_REGULAR_2X),
                     ),

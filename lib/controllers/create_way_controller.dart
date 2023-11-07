@@ -1,6 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:tkt_ticket/widgets/login_fail_dialog.dart';
 
 class CreateWayController extends GetxController {
   var selectedWay = 'ခရီးစဥ်'.obs;
@@ -20,6 +23,11 @@ class CreateWayController extends GetxController {
     'တောင်ကြီး -> တာချီလိတ်',
     'တောင်ကြီး -> လားရှိုး',
   ];
+
+  /// Firebase step up
+  CollectionReference tickets =
+      FirebaseFirestore.instance.collection('tickets');
+  final _auth = FirebaseAuth.instance;
 
   @override
   void onInit() {
@@ -74,6 +82,41 @@ class CreateWayController extends GetxController {
       selectDateController?.text = formattedDate;
     } else {
       print("Date is not selected");
+    }
+  }
+
+  void inputWay() {
+    if (selectedWay.value == "ခရီးစဥ်" ||
+        selectedSet.value == "ထိုင်ခုံ" ||
+        passengerCountController!.text == '' ||
+        nameController!.text == '' ||
+        phoneController!.text == '' ||
+        selectDateController!.text == '' ||
+        noteController!.text == '') {
+      print("Fail");
+      Get.dialog(
+        LoginFailDialog(
+          text: 'အချက်အလက်တွေ အကုန် ဖြည့်ပေးပါ ',
+          title: 'Alert',
+        ),
+      );
+    } else {
+      print("Success");
+      tickets.add({
+        'way': selectedWay.value,
+        'set': selectedSet.value,
+        'setNumber': passengerCountController!.text,
+        'name': nameController!.text,
+        'phone': phoneController!.text,
+        'date': selectDateController!.text,
+        'note': noteController!.text,
+        'agent': _auth.currentUser!.email,
+      }).then((value) {
+        print("Ticket Add");
+        Get.back();
+      }).catchError((onError) {
+        print(onError);
+      });
     }
   }
 }

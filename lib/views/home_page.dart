@@ -17,7 +17,9 @@ class HomePage extends StatelessWidget {
         title: Text(HOME_PAGE_APP_BAR_TITLE),
         centerTitle: true,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            homeController.logOut();
+          },
           icon: Icon(
             Icons.logout_outlined,
           ),

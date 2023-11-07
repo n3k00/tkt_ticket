@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -25,7 +26,9 @@ class MyApp extends StatelessWidget {
         //useMaterial3: true,
         primarySwatch: Colors.green,
       ),
-      initialRoute: LoginPage.id,
+      initialRoute: FirebaseAuth.instance.currentUser != null
+          ? HomePage.id
+          : LoginPage.id,
       getPages: [
         GetPage(name: HomePage.id, page: () => HomePage()),
         GetPage(name: LoginPage.id, page: () => LoginPage()),

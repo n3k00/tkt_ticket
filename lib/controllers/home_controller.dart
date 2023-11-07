@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tkt_ticket/views/login_page.dart';
 
 class HomeController extends GetxController
     with GetSingleTickerProviderStateMixin {
@@ -44,6 +46,11 @@ class HomeController extends GetxController
         return "တနင်္ဂနွေ";
     }
     return "ရာဟု";
+  }
+
+  void logOut() {
+    FirebaseAuth.instance.signOut();
+    Get.offAllNamed(LoginPage.id);
   }
 
   @override

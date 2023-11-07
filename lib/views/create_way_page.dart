@@ -156,23 +156,7 @@ class CreateWayPage extends StatelessWidget {
 
               ElevatedButton(
                 onPressed: () {
-                  /* print(selectedWay);
-                  print(selectedSet);
-                  print(_passengerCountController!.text);
-                  print(_nameController?.text);
-                  print(_phoneController?.text);
-                  print(_selectDateController?.text);
-                  print(_noteController?.text);
-                   addTicket(
-                    way: selectedWay.toString(),
-                    set: selectedSet.toString(),
-                    setNumber: _passengerCountController!.text,
-                    name: _nameController!.text,
-                    phone: _phoneController!.text,
-                    date: _selectDateController!.text,
-                    note: _noteController?.text,
-                    agent: _auth.currentUser?.displayName,
-                  ); */
+                  cwController.inputWay();
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),

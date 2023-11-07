@@ -32,6 +32,7 @@ class LoginController extends GetxController {
     if (emailController!.text == '' || passwordController!.text == '') {
       Get.dialog(LoginFailDialog(
         text: 'Enter email and password!',
+        title: '"Please login again!"',
       ));
       showSpinner(false);
     } else {
@@ -42,12 +43,15 @@ class LoginController extends GetxController {
           password: passwordController!.text,
         );
         if (credential.user != null) {
-          Get.offNamedUntil(HomePage.id, (route) => false);
+          Get.offNamed(HomePage.id);
           showSpinner(false);
         }
       } on FirebaseAuthException catch (e) {
         print("Error");
-        Get.dialog(LoginFailDialog(text: '"Email and password is incorrect"'));
+        Get.dialog(LoginFailDialog(
+          text: '"Email and password is incorrect"',
+          title: '"Please login again!"',
+        ));
         /*if (e.code == 'user-not-found') {
         print('No user found for that email.');
         Get.snackbar("No User Found", "Please Login Again!");
