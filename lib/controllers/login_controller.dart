@@ -8,7 +8,6 @@ import 'package:tkt_ticket/widgets/login_fail_dialog.dart';
 class LoginController extends GetxController {
   TextEditingController? emailController;
   TextEditingController? passwordController;
-  final _auth = FirebaseAuth.instance;
   var showSpinner = false.obs;
 
   @override

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:tkt_ticket/controllers/passenger_controller.dart';
 import 'package:tkt_ticket/models/vo/ticket.dart';
 import 'package:tkt_ticket/resources/dimens.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -8,11 +10,25 @@ class PassengerPage extends StatelessWidget {
 
   PassengerPage({required this.ticket});
 
+  final PassengerController passengerController =
+      Get.put(PassengerController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("ခရီးသည်ဧ။် အချက်အလက်များ"),
+        actions: [
+          /*IconButton(
+            onPressed: () {
+              passengerController.deletePassenger(ticket.timestamp);
+            },
+            icon: Icon(
+              Icons.delete,
+              color: Colors.red,
+            ),
+          ),*/
+        ],
       ),
       body: Padding(
         padding: EdgeInsets.all(MARGIN_MEDIUM + 2),
@@ -57,7 +73,7 @@ class PassengerPage extends StatelessWidget {
               ),
               Divider(),
               FieldSection(
-                label: "လက်မှတ်ဖြတ်ပေးသူ",
+                label: "လက်မှတ်ဖြတ်သူ",
                 value: ticket.agent,
               ),
               Spacer(),
@@ -95,7 +111,9 @@ class FieldSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: SizedBox(
-          width: MediaQuery.of(context).size.width / 4, child: Text(label)),
+        width: MediaQuery.of(context).size.width / 3.7,
+        child: Text(label),
+      ),
       title: Text(value),
       trailing: isTrailing
           ? IconButton(

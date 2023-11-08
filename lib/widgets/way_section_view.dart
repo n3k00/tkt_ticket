@@ -23,15 +23,13 @@ class WaySectionView extends StatelessWidget {
         : Card(
             child: ExpansionTile(
               initiallyExpanded: true,
-              /*trailing: wayList!.length < 1
+              trailing: wayList!.length < 1
                   ? Icon(
                       Icons.keyboard_arrow_down_outlined,
-                      color: Colors.black,
                     )
                   : Icon(
                       Icons.keyboard_arrow_up_outlined,
-                      color: Colors.green,
-                    ),*/
+                    ),
               title: Text(
                 title,
                 style: TextStyle(

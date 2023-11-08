@@ -15,6 +15,7 @@ TicketVO _$TicketVOFromJson(Map<String, dynamic> json) => TicketVO(
       json['date'] as String,
       json['note'] as String,
       json['agent'] as String,
+      json['timestamp'] as int?,
     );
 
 Map<String, dynamic> _$TicketVOToJson(TicketVO instance) => <String, dynamic>{
@@ -26,4 +27,5 @@ Map<String, dynamic> _$TicketVOToJson(TicketVO instance) => <String, dynamic>{
       'date': instance.date,
       'note': instance.note,
       'agent': instance.agent,
+      'timestamp': instance.timestamp,
     };

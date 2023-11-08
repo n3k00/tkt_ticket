@@ -28,9 +28,11 @@ class TicketVO {
   @JsonKey(name: 'agent')
   String agent;
 
-  TicketVO(this.way, this.set, this.setNumber, this.name, this.phone, this.date,
-      this.note, this.agent);
+  @JsonKey(name: 'timestamp')
+  int? timestamp;
 
+  TicketVO(this.way, this.set, this.setNumber, this.name, this.phone, this.date,
+      this.note, this.agent, this.timestamp);
   factory TicketVO.fromJson(Map<String, dynamic> json) =>
       _$TicketVOFromJson(json);
 

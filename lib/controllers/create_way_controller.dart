@@ -110,7 +110,8 @@ class CreateWayController extends GetxController {
         'phone': phoneController!.text,
         'date': selectDateController!.text,
         'note': noteController!.text,
-        'agent': _auth.currentUser!.email,
+        'agent': _auth.currentUser!.displayName,
+        'timestamp': DateTime.now().toUtc().millisecondsSinceEpoch,
       }).then((value) {
         print("Ticket Add");
         Get.back();
