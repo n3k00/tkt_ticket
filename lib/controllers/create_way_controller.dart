@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:tkt_ticket/views/home_page.dart';
 import 'package:tkt_ticket/widgets/login_fail_dialog.dart';
 
 class CreateWayController extends GetxController {
@@ -114,7 +115,7 @@ class CreateWayController extends GetxController {
         'timestamp': DateTime.now().toUtc().millisecondsSinceEpoch,
       }).then((value) {
         print("Ticket Add");
-        Get.back();
+        Get.offAllNamed(HomePage.id);
       }).catchError((onError) {
         print(onError);
       });
