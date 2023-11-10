@@ -63,7 +63,7 @@ class WaySectionView extends StatelessWidget {
                             child: ListTile(
                               title: Padding(
                                 padding: const EdgeInsets.only(
-                                    bottom: MARGIN_MEDIUM_2),
+                                    bottom: MARGIN_CARD_MEDIUM_2),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [

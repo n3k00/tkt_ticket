@@ -9,9 +9,11 @@ import 'package:tkt_ticket/widgets/way_section_view.dart';
 
 class HomePage extends StatelessWidget {
   static const String id = "/home_page";
+
   @override
   Widget build(BuildContext context) {
     final HomeController homeController = Get.put(HomeController());
+
     return Scaffold(
       appBar: AppBar(
         title: Text(HOME_PAGE_APP_BAR_TITLE),

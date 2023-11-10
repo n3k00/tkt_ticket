@@ -8,10 +8,11 @@ import 'package:tkt_ticket/widgets/way_section_view.dart';
 class WaysPage extends StatelessWidget {
   final String date;
   WaysPage({required this.date});
-  final DayTabBarController dayTabBarController =
-      Get.put(DayTabBarController());
+
   @override
   Widget build(BuildContext context) {
+    final DayTabBarController dayTabBarController =
+        Get.put(DayTabBarController());
     dayTabBarController.fetchDataFromFirebase(date);
     return Scaffold(
       appBar: AppBar(

@@ -10,11 +10,10 @@ class PassengerPage extends StatelessWidget {
 
   PassengerPage({required this.ticket});
 
-  final PassengerController passengerController =
-      Get.put(PassengerController());
-
   @override
   Widget build(BuildContext context) {
+    final PassengerController passengerController =
+        Get.put(PassengerController());
     return Scaffold(
       appBar: AppBar(
         title: Text("ခရီးသည်ဧ။် အချက်အလက်များ"),
